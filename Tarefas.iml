@@ -7,5 +7,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Downloads/Programas/mysql-connector-j_9.6.0-1ubuntu25.10_all" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/Downloads/Programas/mysql-connector-j_9.6.0-1ubuntu25.10_all" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
