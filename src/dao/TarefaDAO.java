@@ -19,7 +19,7 @@ public class TarefaDAO {
             stmt.setString(1, descricao);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Connection error: " + e.getMessage());
+            System.out.println("Erro de conexão: " + e.getMessage());
         }
     }
 
@@ -40,7 +40,7 @@ public class TarefaDAO {
             }
         }
         catch (SQLException e) {
-            System.out.println("Connection error: " + e.getMessage());
+            System.out.println("Erro de conexão: " + e.getMessage());
         }
         return lista;
     }
@@ -52,7 +52,7 @@ public class TarefaDAO {
             stmt.setInt(1, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Connection error: " + e.getMessage());
+            System.out.println("Erro de conexão: " + e.getMessage());
         }
     }
 
@@ -63,7 +63,7 @@ public class TarefaDAO {
             stmt.setInt(1, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Connection error: " + e.getMessage());
+            System.out.println("Erro de conexão: " + e.getMessage());
         }
     }
 }
