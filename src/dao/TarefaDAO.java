@@ -35,7 +35,7 @@ public class TarefaDAO {
                 Tarefa t = new Tarefa();
                 t.setId(rs.getInt("id"));
                 t.setDescricao(rs.getString("descricao"));
-                t.setConcluida(rs.getBoolean("consluida"));
+                t.setConcluida(rs.getBoolean("concluida"));
                 lista.add(t);
             }
         }
