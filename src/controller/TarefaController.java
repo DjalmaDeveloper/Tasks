@@ -2,17 +2,18 @@ package controller;
 
 import dao.TarefaDAO;
 import model.Tarefa;
+import service.TarefaService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TarefaController {
 
-    private TarefaDAO dao = new TarefaDAO();
+    private TarefaService service = new TarefaService();
 
     public void adiciondarTarefa(String descricao){
         try {
-            dao.adicionar(descricao);
+            service.salvar(descricao);
             System.out.println(">> Tarefa adicionada com sucesso!");
         } catch (Exception e) {
             System.err.println("Erro ao adicionar: " + e.getMessage());
@@ -21,7 +22,7 @@ public class TarefaController {
 
     public void listarTarefas(){
         try {
-            List<Tarefa> tarefas = dao.listar();
+            List<Tarefa> tarefas = service.buscarTodas();
             if (tarefas.isEmpty()){
                 System.out.println(">> Nenhuma tarefa encontrada");
             }
@@ -39,7 +40,7 @@ public class TarefaController {
 
     public void concluirTarefa(int id){
         try {
-            dao.concluir(id);
+            service.marcarConcluida(id);
             System.out.println(">> Tarefa marcada como concluída!");
         }
         catch (Exception e){
@@ -49,7 +50,7 @@ public class TarefaController {
 
     public void deletarTarefa(int id){
         try{
-            dao.deletar(id);
+            service.deletar(id);
             System.out.println(">> Tarefa deletada.");
         }
         catch (Exception e){
