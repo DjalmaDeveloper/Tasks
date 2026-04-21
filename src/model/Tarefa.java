@@ -37,4 +37,10 @@ public class Tarefa {
     public void setConcluida(boolean concluida) {
         this.concluida = concluida;
     }
+
+    @Override
+    public String toString() {
+        String status = isConcluida() ? "[X]" : "[ ]";
+        return status + " " + getDescricao();
+    }
 }

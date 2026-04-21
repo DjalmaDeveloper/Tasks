@@ -1,10 +1,9 @@
 package controller;
 
-import dao.TarefaDAO;
 import model.Tarefa;
 import service.TarefaService;
 
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TarefaController {
@@ -20,41 +19,32 @@ public class TarefaController {
         }
     }
 
-    public void listarTarefas(){
+    //Retorna a lista para o JavaFX exibir
+    public List<Tarefa> listarTarefasParaExibir(){
         try {
-            List<Tarefa> tarefas = service.buscarTodas();
-            if (tarefas.isEmpty()){
-                System.out.println(">> Nenhuma tarefa encontrada");
-            }
-            else {
-                System.out.println("\n--- Lista de Tarefas ---");
-                for (Tarefa t : tarefas){
-                    String status = t.isConcluida() ? "[V]" : "[ ]";
-                    System.out.println(t.getId() + " - " + status + " " + t.getDescricao());
-                }
-            }
+            return service.buscarTodas();
         } catch (Exception e) {
-            System.err.println("Erro ao listar: " + e.getMessage());
+            return new ArrayList<>();
         }
     }
 
+    // Método para concluir
     public void concluirTarefa(int id){
         try {
             service.marcarConcluida(id);
-            System.out.println(">> Tarefa marcada como concluída!");
         }
         catch (Exception e){
-            System.err.println("Erro ao concluir: " + e.getMessage());
+            System.out.println("Erro ao concluir: " + e.getMessage());
         }
     }
 
+    // Método para deletar
     public void deletarTarefa(int id){
         try{
             service.deletar(id);
-            System.out.println(">> Tarefa deletada.");
         }
         catch (Exception e){
-            System.err.println("Erro ao deletar: " + e.getMessage());
+            System.out.println("Erro ao deletar: " + e.getMessage());
         }
     }
 }
